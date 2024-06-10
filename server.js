@@ -13,6 +13,7 @@ const newMMSController = require("./routes/newMMSControllerRoutes");
 const homeRoutes = require("./routes/homeRoutes");
 const newWhatsappController = require("./routes/newWhatsappControllerRoutes")
 const calenderRoutes = require("./routes/calenderControllerRoutes")
+const GoogleRoutes = require("./routes/googleControllerRoutes")
 const cors = require("cors");
 
 const app = express();
@@ -35,6 +36,7 @@ app.use("/api/newMMS", newMMSController);
 app.use("/api/home", homeRoutes);
 app.use("/api/newWhatsapp", newWhatsappController);
 app.use("/api/calendar", calenderRoutes);
+app.use("/api/google", GoogleRoutes);
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
