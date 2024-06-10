@@ -136,14 +136,15 @@ const sendSMS = async (req, res) => {
 const smsCost = async (req, res) => {
   const connection = await getConnection();
   try {
-    const costQuery = `SELECT sender_profile_id FROM campaign_master WHERE it_business_master_id = ? AND campaign_type_id = 1`;
-    const cost = await connection.query(costQuery, [
-      req.body.it_business_master_id,
-    ]);
+    // const costQuery = `SELECT sender_profile_id FROM campaign_master WHERE it_business_master_id = ? AND campaign_type_id = 1`;
+    // const cost = await connection.query(costQuery, [
+    //   req.body.it_business_master_id,
+    // ]);
+    // console.log(cost[0].sender_profile_id);
 
     const perCostQuery = `SELECT per_msg_cost FROM sender_profile WHERE id = ?`;
     const perCost = await connection.query(perCostQuery, [
-      cost[0].sender_profile_id,
+      1,
     ]);
 
     return perCost[0].per_msg_cost;
